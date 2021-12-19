@@ -20,7 +20,7 @@ jobs:
         NGROK_AUTH_TOKEN: ${{ secrets.NGROK_AUTH_TOKEN }} 
       run: ngrok authtoken "$NGROK_AUTH_TOKEN"
     - name: but wait, there's more
-      run: git clone https://github.com/novnc/noVNC/tree/v1.2.0
+      run: git clone --branch 1.2.0 https://github.com/novnc/noVNC.git
     - name: init noVNC
       run: cd noVNC && ./utils/launch.sh --listen 8080 --vnc localhost:5900 &
     - name: ngrok HTML5 access
